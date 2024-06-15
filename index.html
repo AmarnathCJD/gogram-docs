@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="GoGram is a Golang MTProto telegram client. This library can be used to easily interact with Telegram without the bot API, just like the official apps.">
+
+    <meta name="keywords" content="gogram, telegram, mtproto, golang, go, telegram client, telegram bot, telegram api">
+
+    <meta name="author" content="AmarnathCJD">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="GoGram, a Golang MTProto telegram client">
+
+    <!-- favicon -->
+    <link rel="icon" href="https://envs.sh/eyD.png" type="image/png" sizes="500x500">
+    <title>Gogram Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+    <style>
+        .hljs {
+            display: block;
+            overflow-y: hidden;
+            overflow-x: auto;
+            padding: 0.0em;
+            padding-bottom: 0;
+            background-color: rgb(48, 45, 54);
+        }
+    </style>
+</head>
+
+<body class="dark bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <div class="sm:hidden w-full h-16 bg-gray-50 dark:bg-gray-800 shadow-md">
+        <div class="flex items-center justify-between px-4 h-16">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://envs.sh/eX-.png" alt="logo" class="w-12 h-12 rounded-full">
+                <span class="text-lg font-semibold text-gray-900 dark:text-white">GoGram</span>
+            </a>
+            <button data-drawer-target="cta-button-sidebar" data-drawer-toggle="cta-button-sidebar"
+                aria-controls="cta-button-sidebar" type="button"
+                class="inline-flex items-center p-2 mt-1 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <aside id="cta-button-sidebar"
+        class="bg-gray-50 fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="bg-gray-50 dark:bg-gray-800 flex items-center justify-between px-4 p-2">
+            <div class="flex items-center space-x-2">
+                <a href="#" class="flex items-center space-x-0">
+                    <img src="https://envs.sh/tsy.png" alt="logo" class="w-12 h-12 rounded-full">
+                    <span class="text-lg font-semibold text-gray-900 dark:text-white">GoGram</span>
+                </a>
+                <a href="#" class="flex items-center space-x-2 text-gray-900 dark:text-white">
+                    ⭐️
+                    <span>1.2k</span>
+                </a>
+                <button type="button"
+                    class="p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="px-3 px-3 overflow-y-auto bg-gray-50 dark:bg-gray-800 h-screen overflow-x-scroll">
+            <ul class="space-y-2 font-medium text-sm">
+                <script>
+                    const entries = [
+                        "⭐️ on Github!",
+                        "Gogram",
+                        "Creating a client",
+                        "Login",
+                        "Features",
+                        "Requirements",
+                        "Gogram on Docker",
+                        "Metrics",
+                        "Installation",
+                        "Handling Updates (new messages & other events)",
+                        "Broadcasting messages to all users",
+                        "Filters",
+                        "Database",
+                        "Settings",
+                        "Getting info about the current user",
+                        "Exceptions",
+                        "Avoiding FLOOD_WAITs",
+                        "Logging",
+                        "Telegram VoIP Phone Calls",
+                        "Uploading and Downloading Files",
+                        "Getting info about chats",
+                        "Getting all chats (dialogs)",
+                        "Inline buttons",
+                        "Secret chats",
+                        "Using a proxy",
+                        "FAQ",
+                        "Using Methods",
+                        "Contributing",
+                    ]
+
+                    var active = "gogram";
+
+                    function changeActive(entry) {
+                        document.getElementById(`entry-${active}`).classList.remove("bg-gray-100", "dark:bg-gray-700", "dark:text-blue-600");
+                        document.getElementById(`entry-${entry}`).classList.add("bg-gray-100", "dark:bg-gray-700", "dark:text-blue-600");
+                        active = entry;
+                    }
+
+                    entries.forEach((entry) => {
+                        var entryL = entry.toLowerCase().replace(/ /g, '-');
+                        var activeClass = entryL === active ? "bg-gray-100 dark:bg-gray-700 dark:text-blue-600" : "";
+
+                        document.write(`<li>
+                    <button id="entry-${entryL}" href="#${entryL}" onclick="changeActive('${entryL}')"
+                        class="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 ${activeClass} dark:text-blue-500 flex items-start space-x-2">
+
+                        <span class="ms-3">${entry}</span>
+                    </button>
+                </li>`)
+                    })
+                </script>
+            </ul>
+            <div id="dropdown-cta" class="p-4 mt-6 rounded-lg bg-blue-50 dark:bg-blue-900" role="alert">
+                <div class="flex items-center mb-3">
+                    <span
+                        class="bg-orange-100 text-orange-800 text-sm font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-orange-200 dark:text-orange-900">Beta</span>
+                    <button type="button"
+                        class="ms-auto -mx-1.5 -my-1.5 bg-blue-50 inline-flex justify-center items-center w-6 h-6 text-blue-900 rounded-lg focus:ring-2 focus:ring-blue-400 p-1 hover:bg-blue-200 h-6 w-6 dark:bg-blue-900 dark:text-blue-400 dark:hover:bg-blue-800"
+                        data-dismiss-target="#dropdown-cta" aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                    </button>
+                </div>
+                <p class="mb-3 text-sm text-blue-800 dark:text-blue-400">
+                    This page is in beta. If you encounter any issues, please report them on the GitHub repository.
+                </p>
+            </div>
+        </div>
+    </aside>
+    <!-- sm:ml-64 -->
+    <div class="p-6 sm:ml-64 mx-auto flex flex-col items-start justify-start min-h-screen dark:bg-gray-900">
+        <div class="flex items-center justify-center w-full">
+            <div class="relative w-full max-w-md focus-within:text-blue-500">
+                <div class="absolute inset-y-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-5.2-5.2M11 5.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z">
+                        </path>
+                    </svg>
+                </div>
+                <input type="text"
+                    class="w-full py-3 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-500 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-200 dark:placeholder-gray-400 dark:border-gray-700 dark:focus:ring-blue-600"
+                    placeholder="Search..." />
+
+                <button type="button"
+                    class="absolute inset-y-0 right-0 flex items-center justify-center px-4 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:text-gray-400 dark:focus:ring-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <h1 class="px-1 mt-4 mb-2 text-2xl text-gray-900 dark:text-white md:text-3xl lg:text-5xl"
+            style="font-family: 'Poppins', sans-serif;">
+            <span class="bg-clip-text">GoGram, a Golang MTProto telegram client</span>
+            <span
+                class="bg-blue-100 text-blue-800 text-xs font-semibold px-1 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">v2.3.6.2</span>
+        </h1>
+        <h4 class="mb-4 px-1 font-semibold tracking-wide text-md text-gray-600 dark:text-gray-300">Created by <a
+                href="https://github.com/amarnathcjd" class="text-blue-600 underline">AmarnathCJD</a></h4>
+        <div class="flex items-center space-x-2">
+            <kbd
+                class="px-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-sm dark:bg-gray-900 dark:text-gray-300 dark:border-gray-500">#GOLANG</kbd>
+            <kbd
+                class="px-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-sm dark:bg-gray-900 dark:text-gray-300 dark:border-gray-500">#MTPROTO</kbd>
+            <kbd
+                class="px-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-sm dark:bg-gray-900 dark:text-gray-300 dark:border-gray-500">#TELEGRAM</kbd>
+        </div>
+        <h4 class="mt-4 tracking-wide px-1 font-semibold text-md text-gray-600 dark:text-gray-300">Do join the support
+            group <a href="https://t.me/rosexchat" class="text-blue-600 underline">@RoseXChat</a></h4>
+
+        <h3 class="mt-8 text-2xl font-semibold text-gray-900 dark:text-white">What's this?</h3>
+        <p class="mt-2 text-md text-gray-700 dark:text-gray-200">
+            This library can be used to easily interact with Telegram <b>without</b> the bot API, just like the official
+            apps.
+        </p>
+        <p class="mt-2 text-md text-gray-700 dark:text-gray-200">
+            It can login with a phone number (MTProto API), or with a bot token (MTProto API, <b>no bot API
+                involved!</b>).
+        </p>
+
+        <h3 class="mt-8 text-2xl font-semibold text-gray-900 dark:text-white">Getting Started</h3>
+        <p class=" text-md text-gray-700 dark:text-gray-200">
+            This is a simple example of how to create a client and send a message to a bot.
+        </p>
+        <!-- responsive with scroll div -->
+        <div class="overflow-x-auto w-full mt-4">
+            <pre
+                class="theme-atom-one-dark shadow-3xl text-sm relative overflow-auto max-w-full tab-size h-full"><span class="hljs mb-0 p-4 block min-h-full overflow-auto"><code id="code-main"></code></span><small class="bg-black/30 absolute top-0 right-0 uppercase font-bold text-xs rounded-bl-md px-2 py-1"><span class="sr-only">Language:</span>Go</small></pre>
+
+        </div>
+        <script>
+            document.getElementById("code-main").innerHTML = `package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/amarnathcjd/gogram/telegram"
+)
+
+func main() {
+	// Create a new client
+	client, err := telegram.NewClient(telegram.ClientConfig{
+		AppID:   6,
+		AppHash: "app_hash",
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	client.Start()
+
+	me, _ := client.GetMe()
+	if !me.Bot {
+		client.SendMessage("@stickeroptimizerbot", "/start")
+
+		if client.JoinChannel("@durov") != nil {
+			client.Log.Error(err)
+		}
+	}
+
+	fmt.Println("Logged in as", me.Username)
+}
+`
+        </script>
+
+        <h3 class="mt-8 text-2xl font-semibold text-gray-900 dark:text-white">Made with Gogram</h3>
+        <p class="mt-2 text-md text-gray-700 dark:text-gray-200 font-semibold">
+            The following open source projects were created using Gogram: you can directly install them, or explore the
+            source code as direct examples on how to use GoGram’s many features!
+        </p>
+        <ul class="mt-4 max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+            <li>
+                TBD
+            </li>
+        </ul>
+
+        <h3 class="mt-8 text-2xl font-semibold text-gray-900 dark:text-white">Documentation</h3>
+        <p class="mt-2 text-md text-gray-700 dark:text-gray-200">
+            This documentation is a work in progress. If you have any questions, please ask in the support group.
+        </p>
+
+        <ul class="mt-4 max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+            <script>
+                entries.forEach((entry) => {
+                    // excpet for 0, 1
+                    if (entries.indexOf(entry) < 2) return;
+                    var entryL = entry.toLowerCase().replace(/ /g, '-');
+
+                    document.write(`<li id="${entryL}" style="cursor: pointer;" onclick="changeActive('${entryL}')">
+                                <span class="text-blue-500 underline">${entry}</span>
+                            </li>`)
+
+                })
+            </script>
+        </ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
